@@ -1,0 +1,15 @@
+server:
+  port: 8085
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:192.168.34.40:9092}
+    consumer:
+      group-id: defaultConsumerGroup
+    producer:
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+hbase:
+  zookeeper:
+    quorum: ${ZOOKEEPER_QUORUM:bd-node0,bd-node1,bd-node2}
+    property:
+      clientPort: ${ZOOKEEPER_CLIENT_PORT:2181}
+  rootdir: ${ZOOKEEPER_ROOT_DIR:hdfs://bd-node0:9000/hbase}
